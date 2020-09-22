@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.wecqupt.dao.ScanCodeLogMapper">
+  <resultMap id="BaseResultMap" type="com.project.wecqupt.model.ScanCodeLog">
+    <!--@mbg.generated-->
+    <!--@Table scan_code_log-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="student_number" jdbcType="VARCHAR" property="studentNumber" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="time" jdbcType="VARCHAR" property="time" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="result" jdbcType="VARCHAR" property="result" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, student_number, `name`, `time`, `action`, `result`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from scan_code_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from scan_code_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.project.wecqupt.model.ScanCodeLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into scan_code_log (student_number, `name`, `time`, 
+      `action`, `result`)
+    values (#{studentNumber,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
+      #{action,jdbcType=VARCHAR}, #{result,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.project.wecqupt.model.ScanCodeLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into scan_code_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="studentNumber != null">
+        student_number,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="time != null">
+        `time`,
+      </if>
+      <if test="action != null">
+        `action`,
+      </if>
+      <if test="result != null">
+        `result`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="studentNumber != null">
+        #{studentNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.project.wecqupt.model.ScanCodeLog">
+    <!--@mbg.generated-->
+    update scan_code_log
+    <set>
+      <if test="studentNumber != null">
+        student_number = #{studentNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        `time` = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        `action` = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        `result` = #{result,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.project.wecqupt.model.ScanCodeLog">
+    <!--@mbg.generated-->
+    update scan_code_log
+    set student_number = #{studentNumber,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      `time` = #{time,jdbcType=VARCHAR},
+      `action` = #{action,jdbcType=VARCHAR},
+      `result` = #{result,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

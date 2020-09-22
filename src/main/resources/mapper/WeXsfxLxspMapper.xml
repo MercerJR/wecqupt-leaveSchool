@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.wecqupt.dao.WeXsfxLxspMapper">
+    <resultMap id="BaseResultMap" type="com.project.wecqupt.model.WeXsfxLxsp">
+        <!--@mbg.generated-->
+        <!--@Table we_xsfx_lxsp-->
+        <id column="log_id" jdbcType="INTEGER" property="logId"/>
+        <result column="xh" jdbcType="VARCHAR" property="xh"/>
+        <result column="created_at" jdbcType="VARCHAR" property="createdAt"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="xy" jdbcType="VARCHAR" property="xy"/>
+        <result column="nj" jdbcType="VARCHAR" property="nj"/>
+        <result column="wcmdd" jdbcType="VARCHAR" property="wcmdd"/>
+        <result column="wcxxdd" jdbcType="VARCHAR" property="wcxxdd"/>
+        <result column="wcrq" jdbcType="VARCHAR" property="wcrq"/>
+        <result column="qjsy" jdbcType="VARCHAR" property="qjsy"/>
+        <result column="yjfxsj" jdbcType="VARCHAR" property="yjfxsj"/>
+        <result column="spfdy" jdbcType="VARCHAR" property="spfdy"/>
+        <result column="fdyspsj" jdbcType="VARCHAR" property="fdyspsj"/>
+        <result column="spfdygh" jdbcType="VARCHAR" property="spfdygh"/>
+        <result column="fdyspjg" jdbcType="VARCHAR" property="fdyspjg"/>
+        <result column="fdyyj" jdbcType="VARCHAR" property="fdyyj"/>
+        <result column="spfsjgh" jdbcType="VARCHAR" property="spfsjgh"/>
+        <result column="spfsj" jdbcType="VARCHAR" property="spfsj"/>
+        <result column="fsjspsj" jdbcType="VARCHAR" property="fsjspsj"/>
+        <result column="fsjspjg" jdbcType="VARCHAR" property="fsjspjg"/>
+        <result column="fsjyj" jdbcType="VARCHAR" property="fsjyj"/>
+        <result column="lczt" jdbcType="VARCHAR" property="lczt"/>
+        <result column="lcztdm" jdbcType="VARCHAR" property="lcztdm"/>
+        <result column="lxsmsj" jdbcType="VARCHAR" property="lxsmsj"/>
+        <result column="lxsmdd" jdbcType="VARCHAR" property="lxsmdd"/>
+        <result column="rxsmsj" jdbcType="VARCHAR" property="rxsmsj"/>
+        <result column="rxsmdd" jdbcType="VARCHAR" property="rxsmdd"/>
+        <result column="sfasfx" jdbcType="VARCHAR" property="sfasfx"/>
+        <result column="gxsj" jdbcType="VARCHAR" property="gxsj"/>
+        <result column="gxcz" jdbcType="VARCHAR" property="gxcz"/>
+        <result column="bz" jdbcType="VARCHAR" property="bz"/>
+        <result column="qk" jdbcType="VARCHAR" property="qk"/>
+        <result column="qjlx" jdbcType="VARCHAR" property="qjlx"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        log_id, xh, created_at, `name`, xy, nj, wcmdd, wcxxdd, wcrq, qjsy, yjfxsj, spfdy,
+        fdyspsj, spfdygh, fdyspjg, fdyyj, spfsjgh, spfsj, fsjspsj, fsjspjg, fsjyj, lczt,
+        lcztdm, lxsmsj, lxsmdd, rxsmsj, rxsmdd, sfasfx, gxsj, gxcz, bz, qk, qjlx
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from we_xsfx_lxsp
+        where log_id = #{logId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        <!--@mbg.generated-->
+        delete from we_xsfx_lxsp
+        where log_id = #{logId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="log_id" keyProperty="logId" parameterType="com.project.wecqupt.model.WeXsfxLxsp"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into we_xsfx_lxsp (xh, created_at, `name`,
+        xy, nj, wcmdd, wcxxdd,
+        wcrq, qjsy, yjfxsj,
+        spfdy, fdyspsj, spfdygh,
+        fdyspjg, fdyyj, spfsjgh,
+        spfsj, fsjspsj, fsjspjg,
+        fsjyj, lczt, lcztdm,
+        lxsmsj, lxsmdd, rxsmsj,
+        rxsmdd, sfasfx, gxsj,
+        gxcz, bz, qk, qjlx
+        )
+        values (#{xh,jdbcType=VARCHAR}, #{createdAt,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+        #{xy,jdbcType=VARCHAR}, #{nj,jdbcType=VARCHAR}, #{wcmdd,jdbcType=VARCHAR}, #{wcxxdd,jdbcType=VARCHAR},
+        #{wcrq,jdbcType=VARCHAR}, #{qjsy,jdbcType=VARCHAR}, #{yjfxsj,jdbcType=VARCHAR},
+        #{spfdy,jdbcType=VARCHAR}, #{fdyspsj,jdbcType=VARCHAR}, #{spfdygh,jdbcType=VARCHAR},
+        #{fdyspjg,jdbcType=VARCHAR}, #{fdyyj,jdbcType=VARCHAR}, #{spfsjgh,jdbcType=VARCHAR},
+        #{spfsj,jdbcType=VARCHAR}, #{fsjspsj,jdbcType=VARCHAR}, #{fsjspjg,jdbcType=VARCHAR},
+        #{fsjyj,jdbcType=VARCHAR}, #{lczt,jdbcType=VARCHAR}, #{lcztdm,jdbcType=VARCHAR},
+        #{lxsmsj,jdbcType=VARCHAR}, #{lxsmdd,jdbcType=VARCHAR}, #{rxsmsj,jdbcType=VARCHAR},
+        #{rxsmdd,jdbcType=VARCHAR}, #{sfasfx,jdbcType=VARCHAR}, #{gxsj,jdbcType=VARCHAR},
+        #{gxcz,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, #{qk,jdbcType=VARCHAR}, #{qjlx,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="log_id" keyProperty="logId"
+            parameterType="com.project.wecqupt.model.WeXsfxLxsp" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into we_xsfx_lxsp
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="xh != null">
+                xh,
+            </if>
+            <if test="createdAt != null">
+                created_at,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="xy != null">
+                xy,
+            </if>
+            <if test="nj != null">
+                nj,
+            </if>
+            <if test="wcmdd != null">
+                wcmdd,
+            </if>
+            <if test="wcxxdd != null">
+                wcxxdd,
+            </if>
+            <if test="wcrq != null">
+                wcrq,
+            </if>
+            <if test="qjsy != null">
+                qjsy,
+            </if>
+            <if test="yjfxsj != null">
+                yjfxsj,
+            </if>
+            <if test="spfdy != null">
+                spfdy,
+            </if>
+            <if test="fdyspsj != null">
+                fdyspsj,
+            </if>
+            <if test="spfdygh != null">
+                spfdygh,
+            </if>
+            <if test="fdyspjg != null">
+                fdyspjg,
+            </if>
+            <if test="fdyyj != null">
+                fdyyj,
+            </if>
+            <if test="spfsjgh != null">
+                spfsjgh,
+            </if>
+            <if test="spfsj != null">
+                spfsj,
+            </if>
+            <if test="fsjspsj != null">
+                fsjspsj,
+            </if>
+            <if test="fsjspjg != null">
+                fsjspjg,
+            </if>
+            <if test="fsjyj != null">
+                fsjyj,
+            </if>
+            <if test="lczt != null">
+                lczt,
+            </if>
+            <if test="lcztdm != null">
+                lcztdm,
+            </if>
+            <if test="lxsmsj != null">
+                lxsmsj,
+            </if>
+            <if test="lxsmdd != null">
+                lxsmdd,
+            </if>
+            <if test="rxsmsj != null">
+                rxsmsj,
+            </if>
+            <if test="rxsmdd != null">
+                rxsmdd,
+            </if>
+            <if test="sfasfx != null">
+                sfasfx,
+            </if>
+            <if test="gxsj != null">
+                gxsj,
+            </if>
+            <if test="gxcz != null">
+                gxcz,
+            </if>
+            <if test="bz != null">
+                bz,
+            </if>
+            <if test="qk != null">
+                qk,
+            </if>
+            <if test="qjlx != null">
+                qjlx,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="xh != null">
+                #{xh,jdbcType=VARCHAR},
+            </if>
+            <if test="createdAt != null">
+                #{createdAt,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="xy != null">
+                #{xy,jdbcType=VARCHAR},
+            </if>
+            <if test="nj != null">
+                #{nj,jdbcType=VARCHAR},
+            </if>
+            <if test="wcmdd != null">
+                #{wcmdd,jdbcType=VARCHAR},
+            </if>
+            <if test="wcxxdd != null">
+                #{wcxxdd,jdbcType=VARCHAR},
+            </if>
+            <if test="wcrq != null">
+                #{wcrq,jdbcType=VARCHAR},
+            </if>
+            <if test="qjsy != null">
+                #{qjsy,jdbcType=VARCHAR},
+            </if>
+            <if test="yjfxsj != null">
+                #{yjfxsj,jdbcType=VARCHAR},
+            </if>
+            <if test="spfdy != null">
+                #{spfdy,jdbcType=VARCHAR},
+            </if>
+            <if test="fdyspsj != null">
+                #{fdyspsj,jdbcType=VARCHAR},
+            </if>
+            <if test="spfdygh != null">
+                #{spfdygh,jdbcType=VARCHAR},
+            </if>
+            <if test="fdyspjg != null">
+                #{fdyspjg,jdbcType=VARCHAR},
+            </if>
+            <if test="fdyyj != null">
+                #{fdyyj,jdbcType=VARCHAR},
+            </if>
+            <if test="spfsjgh != null">
+                #{spfsjgh,jdbcType=VARCHAR},
+            </if>
+            <if test="spfsj != null">
+                #{spfsj,jdbcType=VARCHAR},
+            </if>
+            <if test="fsjspsj != null">
+                #{fsjspsj,jdbcType=VARCHAR},
+            </if>
+            <if test="fsjspjg != null">
+                #{fsjspjg,jdbcType=VARCHAR},
+            </if>
+            <if test="fsjyj != null">
+                #{fsjyj,jdbcType=VARCHAR},
+            </if>
+            <if test="lczt != null">
+                #{lczt,jdbcType=VARCHAR},
+            </if>
+            <if test="lcztdm != null">
+                #{lcztdm,jdbcType=VARCHAR},
+            </if>
+            <if test="lxsmsj != null">
+                #{lxsmsj,jdbcType=VARCHAR},
+            </if>
+            <if test="lxsmdd != null">
+                #{lxsmdd,jdbcType=VARCHAR},
+            </if>
+            <if test="rxsmsj != null">
+                #{rxsmsj,jdbcType=VARCHAR},
+            </if>
+            <if test="rxsmdd != null">
+                #{rxsmdd,jdbcType=VARCHAR},
+            </if>
+            <if test="sfasfx != null">
+                #{sfasfx,jdbcType=VARCHAR},
+            </if>
+            <if test="gxsj != null">
+                #{gxsj,jdbcType=VARCHAR},
+            </if>
+            <if test="gxcz != null">
+                #{gxcz,jdbcType=VARCHAR},
+            </if>
+            <if test="bz != null">
+                #{bz,jdbcType=VARCHAR},
+            </if>
+            <if test="qk != null">
+                #{qk,jdbcType=VARCHAR},
+            </if>
+            <if test="qjlx != null">
+                #{qjlx,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.project.wecqupt.model.WeXsfxLxsp">
+        <!--@mbg.generated-->
+        update we_xsfx_lxsp
+        <set>
+            <if test="xh != null">
+                xh = #{xh,jdbcType=VARCHAR},
+            </if>
+            <if test="createdAt != null">
+                created_at = #{createdAt,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="xy != null">
+                xy = #{xy,jdbcType=VARCHAR},
+            </if>
+            <if test="nj != null">
+                nj = #{nj,jdbcType=VARCHAR},
+            </if>
+            <if test="wcmdd != null">
+                wcmdd = #{wcmdd,jdbcType=VARCHAR},
+            </if>
+            <if test="wcxxdd != null">
+                wcxxdd = #{wcxxdd,jdbcType=VARCHAR},
+            </if>
+            <if test="wcrq != null">
+                wcrq = #{wcrq,jdbcType=VARCHAR},
+            </if>
+            <if test="qjsy != null">
+                qjsy = #{qjsy,jdbcType=VARCHAR},
+            </if>
+            <if test="yjfxsj != null">
+                yjfxsj = #{yjfxsj,jdbcType=VARCHAR},
+            </if>
+            <if test="spfdy != null">
+                spfdy = #{spfdy,jdbcType=VARCHAR},
+            </if>
+            <if test="fdyspsj != null">
+                fdyspsj = #{fdyspsj,jdbcType=VARCHAR},
+            </if>
+            <if test="spfdygh != null">
+                spfdygh = #{spfdygh,jdbcType=VARCHAR},
+            </if>
+            <if test="fdyspjg != null">
+                fdyspjg = #{fdyspjg,jdbcType=VARCHAR},
+            </if>
+            <if test="fdyyj != null">
+                fdyyj = #{fdyyj,jdbcType=VARCHAR},
+            </if>
+            <if test="spfsjgh != null">
+                spfsjgh = #{spfsjgh,jdbcType=VARCHAR},
+            </if>
+            <if test="spfsj != null">
+                spfsj = #{spfsj,jdbcType=VARCHAR},
+            </if>
+            <if test="fsjspsj != null">
+                fsjspsj = #{fsjspsj,jdbcType=VARCHAR},
+            </if>
+            <if test="fsjspjg != null">
+                fsjspjg = #{fsjspjg,jdbcType=VARCHAR},
+            </if>
+            <if test="fsjyj != null">
+                fsjyj = #{fsjyj,jdbcType=VARCHAR},
+            </if>
+            <if test="lczt != null">
+                lczt = #{lczt,jdbcType=VARCHAR},
+            </if>
+            <if test="lcztdm != null">
+                lcztdm = #{lcztdm,jdbcType=VARCHAR},
+            </if>
+            <if test="lxsmsj != null">
+                lxsmsj = #{lxsmsj,jdbcType=VARCHAR},
+            </if>
+            <if test="lxsmdd != null">
+                lxsmdd = #{lxsmdd,jdbcType=VARCHAR},
+            </if>
+            <if test="rxsmsj != null">
+                rxsmsj = #{rxsmsj,jdbcType=VARCHAR},
+            </if>
+            <if test="rxsmdd != null">
+                rxsmdd = #{rxsmdd,jdbcType=VARCHAR},
+            </if>
+            <if test="sfasfx != null">
+                sfasfx = #{sfasfx,jdbcType=VARCHAR},
+            </if>
+            <if test="gxsj != null">
+                gxsj = #{gxsj,jdbcType=VARCHAR},
+            </if>
+            <if test="gxcz != null">
+                gxcz = #{gxcz,jdbcType=VARCHAR},
+            </if>
+            <if test="bz != null">
+                bz = #{bz,jdbcType=VARCHAR},
+            </if>
+            <if test="qk != null">
+                qk = #{qk,jdbcType=VARCHAR},
+            </if>
+            <if test="qjlx != null">
+                qjlx = #{qjlx,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where log_id = #{logId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.project.wecqupt.model.WeXsfxLxsp">
+        <!--@mbg.generated-->
+        update we_xsfx_lxsp
+        set xh = #{xh,jdbcType=VARCHAR},
+        created_at = #{createdAt,jdbcType=VARCHAR},
+        `name` = #{name,jdbcType=VARCHAR},
+        xy = #{xy,jdbcType=VARCHAR},
+        nj = #{nj,jdbcType=VARCHAR},
+        wcmdd = #{wcmdd,jdbcType=VARCHAR},
+        wcxxdd = #{wcxxdd,jdbcType=VARCHAR},
+        wcrq = #{wcrq,jdbcType=VARCHAR},
+        qjsy = #{qjsy,jdbcType=VARCHAR},
+        yjfxsj = #{yjfxsj,jdbcType=VARCHAR},
+        spfdy = #{spfdy,jdbcType=VARCHAR},
+        fdyspsj = #{fdyspsj,jdbcType=VARCHAR},
+        spfdygh = #{spfdygh,jdbcType=VARCHAR},
+        fdyspjg = #{fdyspjg,jdbcType=VARCHAR},
+        fdyyj = #{fdyyj,jdbcType=VARCHAR},
+        spfsjgh = #{spfsjgh,jdbcType=VARCHAR},
+        spfsj = #{spfsj,jdbcType=VARCHAR},
+        fsjspsj = #{fsjspsj,jdbcType=VARCHAR},
+        fsjspjg = #{fsjspjg,jdbcType=VARCHAR},
+        fsjyj = #{fsjyj,jdbcType=VARCHAR},
+        lczt = #{lczt,jdbcType=VARCHAR},
+        lcztdm = #{lcztdm,jdbcType=VARCHAR},
+        lxsmsj = #{lxsmsj,jdbcType=VARCHAR},
+        lxsmdd = #{lxsmdd,jdbcType=VARCHAR},
+        rxsmsj = #{rxsmsj,jdbcType=VARCHAR},
+        rxsmdd = #{rxsmdd,jdbcType=VARCHAR},
+        sfasfx = #{sfasfx,jdbcType=VARCHAR},
+        gxsj = #{gxsj,jdbcType=VARCHAR},
+        gxcz = #{gxcz,jdbcType=VARCHAR},
+        bz = #{bz,jdbcType=VARCHAR},
+        qk = #{qk,jdbcType=VARCHAR},
+        qjlx = #{qjlx,jdbcType=VARCHAR}
+        where log_id = #{logId,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectByStudentNumber" resultMap="BaseResultMap">
+        select lcztdm,qjlx from we_xsfx_lxsp
+        where xh = #{studentNumber}
+        order by created_at desc
+        limit 2
+    </select>
+
+    <select id="selectByStudentNumberInPage" resultMap="BaseResultMap">
+        select * from we_xsfx_lxsp
+        where xh = #{studentNumber} and qjlx = #{leaveType}
+        order by created_at desc
+    </select>
+
+    <select id="selectTotalNumber" resultType="int">
+        select count(*) from we_xsfx_lxsp
+        where xh = #{studentNumber} and qjlx = #{leaveType}
+    </select>
+
+    <select id="selectByStudentNumberNotEnd" resultMap="BaseResultMap">
+        select * from we_xsfx_lxsp
+        where xh = #{studentNumber} and lcztdm not in
+        (#{endState},#{deniedState},#{abnormalState})
+    </select>
+
+    <update id="updateAbnormalRecords" parameterType="list">
+        update we_xsfx_lxsp
+        set lczt = #{state},lcztdm = #{stateCode},gxsj = #{updateTime}
+        where log_id in
+        <foreach collection="abnormalRecords" index="index" item="item" open="(" close=")" separator=",">
+            #{item,jdbcType=BIGINT}
+        </foreach>
+    </update>
+
+    <update id="updateStatusById">
+        update we_xsfx_lxsp
+        set lcztdm = #{statusCode},lczt = #{describe},gxcz = #{operationType},gxsj = #{updateTime}
+        where log_id = #{logId}
+    </update>
+
+    <select id="selectScanCodeByStudentNumber" resultMap="BaseResultMap">
+        select * from we_xsfx_lxsp
+        where xh = #{studentNumber}
+        order by created_at desc
+        limit 2
+    </select>
+
+</mapper>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.wecqupt.dao.WeUserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.project.wecqupt.model.WeUserInfo">
+    <!--@mbg.generated-->
+    <!--@Table we_user_info-->
+    <id column="openid" jdbcType="VARCHAR" property="openid" />
+    <id column="xh" jdbcType="VARCHAR" property="xh" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="sfzh" jdbcType="VARCHAR" property="sfzh" />
+    <result column="ykth" jdbcType="VARCHAR" property="ykth" />
+    <result column="build" jdbcType="VARCHAR" property="build" />
+    <result column="room" jdbcType="VARCHAR" property="room" />
+    <result column="yxm" jdbcType="VARCHAR" property="yxm" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="volunteer_uid" jdbcType="VARCHAR" property="volunteerUid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    openid, xh, `name`, sex, sfzh, ykth, build, room, yxm, `type`, create_time, volunteer_uid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from we_user_info
+    where openid = #{openid,jdbcType=VARCHAR}
+      and xh = #{xh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from we_user_info
+    where openid = #{openid,jdbcType=VARCHAR}
+      and xh = #{xh,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.project.wecqupt.model.WeUserInfo">
+    <!--@mbg.generated-->
+    insert into we_user_info (openid, xh, `name`, 
+      sex, sfzh, ykth, build, 
+      room, yxm, `type`, create_time, 
+      volunteer_uid)
+    values (#{openid,jdbcType=VARCHAR}, #{xh,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{sfzh,jdbcType=VARCHAR}, #{ykth,jdbcType=VARCHAR}, #{build,jdbcType=VARCHAR}, 
+      #{room,jdbcType=VARCHAR}, #{yxm,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{volunteerUid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.project.wecqupt.model.WeUserInfo">
+    <!--@mbg.generated-->
+    insert into we_user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="openid != null">
+        openid,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="sfzh != null">
+        sfzh,
+      </if>
+      <if test="ykth != null">
+        ykth,
+      </if>
+      <if test="build != null">
+        build,
+      </if>
+      <if test="room != null">
+        room,
+      </if>
+      <if test="yxm != null">
+        yxm,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="volunteerUid != null">
+        volunteer_uid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null">
+        #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="ykth != null">
+        #{ykth,jdbcType=VARCHAR},
+      </if>
+      <if test="build != null">
+        #{build,jdbcType=VARCHAR},
+      </if>
+      <if test="room != null">
+        #{room,jdbcType=VARCHAR},
+      </if>
+      <if test="yxm != null">
+        #{yxm,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="volunteerUid != null">
+        #{volunteerUid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.project.wecqupt.model.WeUserInfo">
+    <!--@mbg.generated-->
+    update we_user_info
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null">
+        sfzh = #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="ykth != null">
+        ykth = #{ykth,jdbcType=VARCHAR},
+      </if>
+      <if test="build != null">
+        build = #{build,jdbcType=VARCHAR},
+      </if>
+      <if test="room != null">
+        room = #{room,jdbcType=VARCHAR},
+      </if>
+      <if test="yxm != null">
+        yxm = #{yxm,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="volunteerUid != null">
+        volunteer_uid = #{volunteerUid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where openid = #{openid,jdbcType=VARCHAR}
+      and xh = #{xh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.project.wecqupt.model.WeUserInfo">
+    <!--@mbg.generated-->
+    update we_user_info
+    set `name` = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      sfzh = #{sfzh,jdbcType=VARCHAR},
+      ykth = #{ykth,jdbcType=VARCHAR},
+      build = #{build,jdbcType=VARCHAR},
+      room = #{room,jdbcType=VARCHAR},
+      yxm = #{yxm,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      volunteer_uid = #{volunteerUid,jdbcType=VARCHAR}
+    where openid = #{openid,jdbcType=VARCHAR}
+      and xh = #{xh,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectXhById" resultType="java.lang.String">
+    select xh from we_user_info
+    where openid = #{openid}
+  </select>
+</mapper>
