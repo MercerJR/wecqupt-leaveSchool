@@ -32,8 +32,9 @@ public class ValidatedFilter extends HandlerInterceptorAdapter {
             String openid = request.getParameter(HttpInfo.OPENID);
             String studentNumber = request.getParameter(HttpInfo.STUDENT_NUMBER);
             WeUserInfo weUserInfo = weUserService.validateOpenid(openid,studentNumber);
-            request.setAttribute(HttpInfo.WE_USER_INFO,weUserInfo);
+            request.getSession().setAttribute(HttpInfo.WE_USER_INFO,weUserInfo);
         }else {
+            System.out.println(request.getRequestURI());
             BufferedReader streamReader = new BufferedReader( new InputStreamReader(request.getInputStream(), "UTF-8"));
             StringBuilder responseStrBuilder = new StringBuilder();
             String inputStr;
@@ -44,9 +45,8 @@ public class ValidatedFilter extends HandlerInterceptorAdapter {
             String openid = jsonObject.getString(HttpInfo.OPENID);
             String studentNumber = jsonObject.getString(HttpInfo.STUDENT_NUMBER);
             WeUserInfo weUserInfo = weUserService.validateOpenid(openid,studentNumber);
-            request.setAttribute(HttpInfo.WE_USER_INFO,weUserInfo);
+            request.getSession().setAttribute(HttpInfo.WE_USER_INFO,weUserInfo);
         }
         return true;
     }
-
 }

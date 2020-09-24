@@ -39,7 +39,7 @@ public class DateFormatUtil {
         } catch (ParseException e) {
             throw new CustomException(CustomExceptionType.SYSTEM_ERROR, Message.CONTACT_ADMIN);
         }
-        System.out.println(time);
+//        System.out.println(time);
         return time;
     }
 
@@ -51,7 +51,7 @@ public class DateFormatUtil {
         } catch (ParseException e) {
             throw new CustomException(CustomExceptionType.SYSTEM_ERROR, Message.CONTACT_ADMIN);
         }
-        System.out.println(time);
+//        System.out.println(time);
         return time;
     }
 }

@@ -8,11 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * @Author: Mercer JR
@@ -32,6 +31,8 @@ public class IndexController {
     @GetMapping("/index")
     public Response index(@RequestParam(HttpInfo.OPENID) String openid,
                           @RequestParam(HttpInfo.STUDENT_NUMBER) String studentNumber) {
+        log.info("openid:" + openid);
+        log.info("学号：" + studentNumber);
         WeValidate weValidate = new WeValidate(openid, studentNumber);
         WeUserInfo weUserInfo = weUserService.validateOpenid(weValidate);
         weUserService.checkUpRecords(studentNumber);
@@ -39,7 +40,8 @@ public class IndexController {
         StateResponse stateResponse = new StateResponse(states.getProcessState(),
                 weUserInfo.getName(), weUserInfo.getXh(), weUserInfo.getYxm(),
                 states.getShortApplyState(), states.getLongApplyState());
-        return new Response().success(stateResponse);
+        Response response = new Response().success(stateResponse);
+        log.info(response.toString());
+        return response;
     }
-
 }

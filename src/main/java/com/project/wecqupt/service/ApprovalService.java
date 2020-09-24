@@ -59,7 +59,7 @@ public class ApprovalService {
                     !record.getLcztdm().equals(ProcessStatusType.PROCESS_ABNORMAL.getCode())) {
                 if (record.getQjlx().equals(LeaveType.SAME_DAY_LEAVE.getDescribe())) {
                     states.setShortApplyState(0);
-                } else {
+                } else if (record.getQjlx().equals(LeaveType.LONG_TIME_LEAVE.getDescribe())){
                     states.setLongApplyState(0);
                 }
             }
@@ -120,20 +120,14 @@ public class ApprovalService {
 
     public List<WeXsfxLxsp> getScanRecords(String studentNumber) {
         List<WeXsfxLxsp> records = mapper.selectScanCodeByStudentNumber(studentNumber);
-        Iterator<WeXsfxLxsp> iterator = records.iterator();
-        while (iterator.hasNext()){
-            WeXsfxLxsp record = iterator.next();
-            if (!record.getLcztdm().equals(ProcessStatusType.WAITING_TO_BACK.getCode()) ||
-                    !record.getLcztdm().equals(ProcessStatusType.WAITING_TO_LEAVE.getCode())){
-                records.remove(record);
-            }
-        }
+        records.removeIf(record -> !record.getLcztdm().equals(ProcessStatusType.WAITING_TO_BACK.getCode()) &&
+                !record.getLcztdm().equals(ProcessStatusType.WAITING_TO_LEAVE.getCode()));
         return records;
     }
 
     public void updateScanCodeRecord(ScanCodeRequest scanCodeRequest, WeUserInfo weUserInfo) {
         WeXsfxLxsp record = mapper.selectByPrimaryKey(scanCodeRequest.getLogId());
-        if (!record.getLcztdm().equals(ProcessStatusType.WAITING_TO_LEAVE.getCode()) ||
+        if (!record.getLcztdm().equals(ProcessStatusType.WAITING_TO_LEAVE.getCode()) &&
                 !record.getLcztdm().equals(ProcessStatusType.WAITING_TO_BACK.getCode())) {
             throw new CustomException(CustomExceptionType.VALIDATE_ERROR, Message.RECORD_CAN_NOT_SCAN_CODE);
         }
