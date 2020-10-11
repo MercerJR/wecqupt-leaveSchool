@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
-
 /**
  * @Author: Mercer JR
  * @Date: 2020/9/17 18:15
@@ -32,7 +30,6 @@ public class ApplyController {
     public Response shortTimeApply(@RequestBody ApplyRequest applyRequest) {
         WeUserInfo weUserInfo = weUserService.validateOpenid(
                 applyRequest.getOpenid(),applyRequest.getStudentNumber());
-//        WeUserInfo weUserInfo = (WeUserInfo) session.getAttribute(HttpInfo.WE_USER_INFO);
         approvalService.insertApplyRecord(applyRequest, weUserInfo, LeaveType.SAME_DAY_LEAVE.getCode());
         return new Response().success();
     }

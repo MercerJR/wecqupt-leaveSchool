@@ -425,21 +425,21 @@
     </update>
 
     <select id="selectByStudentNumber" resultMap="BaseResultMap">
-        select lcztdm,qjlx from we_xsfx_lxsp
-        where xh = #{studentNumber}
+        select * from we_xsfx_lxsp
+        where xh = #{studentNumber} and lcztdm != 5 and lcztdm != -9 and lcztdm != -1
         order by created_at desc
         limit 2
     </select>
 
     <select id="selectByStudentNumberInPage" resultMap="BaseResultMap">
         select * from we_xsfx_lxsp
-        where xh = #{studentNumber} and qjlx = #{leaveType}
+        where xh = #{studentNumber}
         order by created_at desc
     </select>
 
     <select id="selectTotalNumber" resultType="int">
         select count(*) from we_xsfx_lxsp
-        where xh = #{studentNumber} and qjlx = #{leaveType}
+        where xh = #{studentNumber}
     </select>
 
     <select id="selectByStudentNumberNotEnd" resultMap="BaseResultMap">
@@ -465,7 +465,7 @@
 
     <select id="selectScanCodeByStudentNumber" resultMap="BaseResultMap">
         select * from we_xsfx_lxsp
-        where xh = #{studentNumber}
+        where xh = #{studentNumber}  and lcztdm != 5 and lcztdm != -9 and lcztdm != -1
         order by created_at desc
         limit 2
     </select>

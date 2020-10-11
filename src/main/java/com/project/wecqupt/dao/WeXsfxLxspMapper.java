@@ -24,11 +24,9 @@ public interface WeXsfxLxspMapper {
 
     List<WeXsfxLxsp> selectByStudentNumber(String studentNumber);
 
-    List<WeXsfxLxsp> selectByStudentNumberInPage(@Param("studentNumber") String studentNumber,
-                                                 @Param("leaveType")String leaveType);
+    List<WeXsfxLxsp> selectByStudentNumberInPage(@Param("studentNumber") String studentNumber);
 
-    int selectTotalNumber(@Param("studentNumber") String studentNumber,
-                          @Param("leaveType")String leaveType);
+    int selectTotalNumber(@Param("studentNumber") String studentNumber);
 
     List<WeXsfxLxsp> selectByStudentNumberNotEnd(@Param("studentNumber") String studentNumber,
                                                  @Param("endState") String endState,

@@ -25,4 +25,6 @@ public class StateResponse {
 
     private int longTimeState;
 
+    private int rentalState;
+
 }

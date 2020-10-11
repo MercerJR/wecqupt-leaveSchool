@@ -35,11 +35,12 @@ public class IndexController {
         log.info("学号：" + studentNumber);
         WeValidate weValidate = new WeValidate(openid, studentNumber);
         WeUserInfo weUserInfo = weUserService.validateOpenid(weValidate);
-        weUserService.checkUpRecords(studentNumber);
+        approvalService.checkUpRecords(studentNumber);
         IndexStates states = approvalService.getState(weUserInfo.getXh());
         StateResponse stateResponse = new StateResponse(states.getProcessState(),
                 weUserInfo.getName(), weUserInfo.getXh(), weUserInfo.getYxm(),
-                states.getShortApplyState(), states.getLongApplyState());
+                states.getShortApplyState(), states.getLongApplyState(),
+                approvalService.getRentalState(studentNumber));
         Response response = new Response().success(stateResponse);
         log.info(response.toString());
         return response;

@@ -27,9 +27,6 @@ public class WeUserService {
     @Autowired
     private WeUserInfoMapper mapper;
 
-    @Autowired
-    private WeXsfxLxspMapper recordMapper;
-
     public WeUserInfo validateOpenid(WeValidate weValidate) {
         WeUserInfo weUserInfo = mapper.selectByPrimaryKey(weValidate.getOpenid(), weValidate.getStudentNumber());
         if (weUserInfo == null) {
@@ -44,29 +41,5 @@ public class WeUserService {
             throw new CustomException(CustomExceptionType.UNAUTHORIZED_ERROR, Message.UNAUTHORIZED);
         }
         return weUserInfo;
-    }
-
-    public void checkUpRecords(String studentNumber) {
-        List<WeXsfxLxsp> records = recordMapper.selectByStudentNumberNotEnd(studentNumber,
-                ProcessStatusType.PROCESS_END.getCode(),ProcessStatusType.INSTRUCTOR_DENIED.getCode(),
-                ProcessStatusType.PROCESS_ABNORMAL.getCode());
-        long currentMiles = System.currentTimeMillis();
-        List<Long> abnormalRecords = new ArrayList<>();
-        for (WeXsfxLxsp record : records) {
-            long startTimeMiles;
-            if (record.getQjlx().equals(LeaveType.SAME_DAY_LEAVE.getDescribe())){
-                startTimeMiles = DateFormatUtil.getMilesByDate(record.getWcrq());
-            }else {
-                startTimeMiles = DateFormatUtil.getMilesByDetailedDate(record.getWcrq());
-            }
-            if (currentMiles - Message.GAP_MILES > startTimeMiles) {
-                abnormalRecords.add(Long.valueOf(record.getLogId()));
-            }
-        }
-        if (abnormalRecords.size() != 0){
-            String currentTime = DateFormatUtil.getDetailedDateByMiles(currentMiles);
-            recordMapper.updateAbnormalRecords(abnormalRecords, ProcessStatusType.PROCESS_ABNORMAL.getDescribe(),
-                    ProcessStatusType.PROCESS_ABNORMAL.getCode(),currentTime);
-        }
     }
 }
