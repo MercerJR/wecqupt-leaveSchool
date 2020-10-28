@@ -108,6 +108,9 @@ public class ApprovalService {
         if (states.getProcessState() == null) {
             states.setProcessState(Message.NOT_APPLIED);
         }
+        if (rentalFlag){
+            states.setRentalState(1);
+        }
         return states;
     }
 

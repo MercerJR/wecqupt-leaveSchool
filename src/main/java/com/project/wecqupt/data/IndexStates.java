@@ -19,4 +19,6 @@ public class IndexStates {
 
     private int longApplyState = 1;
 
+    private int rentalState = 0;
+
 }
